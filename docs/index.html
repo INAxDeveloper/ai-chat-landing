@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Chat</title>
   <style>
     body {
@@ -14,18 +14,32 @@
     header {
       padding: 2rem;
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
     h1 {
       font-size: 2.5rem;
       color: #66b3ff;
     }
+    .hero, .how-it-works, .mockups, .button-container {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+    .hero { animation-delay: 0.3s; }
+    .how-it-works { animation-delay: 0.6s; }
+    .mockups { animation-delay: 0.9s; }
+    .button-container { animation-delay: 1.2s; }
+
     .hero {
       text-align: center;
       margin-top: 2rem;
     }
     .hero img {
-      width: 200px;
+      width: 250px;
+      height: 480px;
+      object-fit: cover;
       margin-bottom: 1rem;
+      border-radius: 1rem;
+      border: 1px solid #444;
     }
     .how-it-works {
       padding: 2rem;
@@ -37,15 +51,25 @@
     }
     .mockups {
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      align-items: center;
-      margin-bottom: 2rem;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto;
+      flex-wrap: wrap;
     }
     .mockups img {
       width: 250px;
+      height: 480px;
+      object-fit: cover;
       border-radius: 1rem;
       border: 1px solid #444;
+      transition: transform 0.3s ease;
+    }
+    .mockups img:hover {
+      transform: scale(1.05);
+    }
+    .mockups p {
+      text-align: center;
+      margin-top: 0.5rem;
     }
     .button-container {
       text-align: center;
@@ -60,9 +84,26 @@
       border-radius: 0.5rem;
       cursor: pointer;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
     .privacy-button:hover {
       background-color: #5599dd;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -73,7 +114,7 @@
   </header>
 
   <div class="hero">
-    <img src="assets/001-portrait.png" alt="Splash Screen">
+    <img src="assets/001-portrait.png" alt="Splash Screen" />
     <p>Start screen while loading necessary data.</p>
   </div>
 
@@ -86,11 +127,11 @@
 
   <div class="mockups">
     <div>
-      <img src="assets/002-portrait.png" alt="Role Selection">
+      <img src="assets/002-portrait.png" alt="Role Selection" />
       <p>Choose your assistant's role</p>
     </div>
     <div>
-      <img src="assets/003-portrait.png" alt="Chat Interface">
+      <img src="assets/003-portrait.png" alt="Chat Interface" />
       <p>Chat with your selected expert assistant</p>
     </div>
   </div>
